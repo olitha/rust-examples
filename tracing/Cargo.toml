@@ -1,0 +1,17 @@
+[workspace]
+resolver = "2"
+
+members = ["client", "api-gateway", "log-example"]
+
+[workspace.dependencies]
+opentelemetry = "0.28"
+opentelemetry-http = "0.28.0"
+opentelemetry-otlp = { version = "0.28.0", features = ["grpc-tonic"] }
+opentelemetry-semantic-conventions = { version = "0.28.0" }
+opentelemetry_sdk = { version = "0.28", default-features = false , features = ["rt-tokio"]}
+tokio = { version = "1.43.0", features = ["macros", "rt", "rt-multi-thread"] }
+tracing = "0.1.35"
+tracing-core = "0.1.28"
+tracing-opentelemetry = "0.29.0"
+tracing-subscriber = { version = "0.3.0", features = ["env-filter"] }
+

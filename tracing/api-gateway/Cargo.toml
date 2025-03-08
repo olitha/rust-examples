@@ -1,0 +1,21 @@
+[package]
+name = "api-gateway"
+version = "0.0.0"
+edition = "2021"
+
+[dependencies]
+axum = { version = "0.8", features = ["macros"] }
+tokio = { workspace = true, features = ["macros", "rt", "rt-multi-thread"] }
+tracing = {workspace = true}
+tracing-subscriber = { workspace = true, features = ["env-filter"] }
+
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+opentelemetry-otlp = { workspace = true, features = ["grpc-tonic"] }
+opentelemetry_sdk = { workspace = true, features = ["rt-tokio"]}
+opentelemetry = {workspace = true }
+tracing-opentelemetry = {workspace = true} 
+tower-http = { version = "0.6.1", features = ["trace", "request-id"] }
+
+opentelemetry-http = {workspace = true}
+

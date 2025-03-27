@@ -1,12 +1,12 @@
 //! Example for a simple leaf service in tower
-use std::{future::Future, pin::Pin, task::Poll};
+use std::{convert::Infallible, future::Future, pin::Pin, task::Poll};
 use tower::Service;
 
 pub struct AddService;
 impl Service<(i32, i32)> for AddService {
     type Response = i32;
 
-    type Error = &'static str;
+    type Error = Infallible;
 
     type Future = Pin<Box<dyn Future<Output = Result<Self::Response, Self::Error>>>>;
 
